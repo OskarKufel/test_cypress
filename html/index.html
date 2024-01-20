@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkcja Kwadratowa</title>
+</head>
+<body>
+
+<form method="post" action="">
+    <label for="a">Współczynnik a:</label>
+    <input type="number" step="any" name="a" required><br>
+
+    <label for="b">Współczynnik b:</label>
+    <input type="number" step="any" name="b" required><br>
+
+    <label for="c">Współczynnik c:</label>
+    <input type="number" step="any" name="c" required><br>
+
+    <label for="start">Początek przedziału (x):</label>
+    <input type="number" step="any" name="start" required><br>
+
+    <label for="end">Koniec przedziału (x):</label>
+    <input type="number" step="any" name="end" required><br>
+
+    <button type="submit">Oblicz</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Pobieranie danych z formularza
+    $a = $_POST["a"];
+    $b = $_POST["b"];
+    $c = $_POST["c"];
+    $start = $_POST["start"];
+    $end = $_POST["end"];
+
+    // Obliczanie wartości funkcji kwadratowej i wyświetlanie wyników
+    echo "<h2>Wyniki:</h2>";
+    for ($x = $start; $x <= $end; $x++) {
+        $result = ($a * $x * $x) + ($b * $x) + $c;
+        echo "Dla x = $x, y = $result<br>";
+    }
+}
+?>
+
+</body>
+</html>
